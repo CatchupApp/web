@@ -10,11 +10,16 @@ module.exports = {
     fontFamily: {
       body: ["Manrope", "Tahoma", "Arial", "Helvetica", "sans-serif"],
     },
+    fontWeight: {
+      normal: 600,
+      bold: 800,
+    },
     extend: {
       colors: {
         dark: "#6A5D7B",
         medium: "#A9A7CA",
         light: "#EFEBF2",
+        black: "#000022",
       },
     },
     borderRadius: {
