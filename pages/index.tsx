@@ -32,6 +32,7 @@ const HomePage = () => {
         })
         .then((res) => {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user", res.data.id);
           setUser({ id: res.data.id, username, fullname, teacher });
           router.push("/dashboard");
         })
@@ -41,6 +42,7 @@ const HomePage = () => {
         .post(`${process.env.SERVER_BASE_URL}/auth`, { username, password })
         .then((res) => {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user", res.data.id);
           axios
             .get(`${process.env.SERVER_BASE_URL}/user/${res.data.id}`, {
               headers: {

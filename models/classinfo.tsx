@@ -1,16 +1,14 @@
 interface ClassInfo {
-  name: string,
-  period: number,
-  teacher: string,
-  lectures: Array<Lecture>
-} 
-
-interface Lecture {
-  title: string,
-  date: Date,
-  thumbnailsrc: string,
+  name: string;
+  period: number;
+  teacher: string;
+  videos: Array<Video>;
 }
 
-export type {
-  ClassInfo, Lecture
+interface Video {
+  name: string;
+  date: Date;
+  thumbnailsrc: string;
 }
+
+export type { ClassInfo, Video };
