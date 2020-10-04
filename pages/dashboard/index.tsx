@@ -1,18 +1,18 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
-import User from '../../utils/user';
+import {User, UserContext} from '../../utils/user';
 import { useRouter } from "next/router";
 import { ClassInfo } from '../../models/classinfo';
 import ClassCard from '../../components/ClassCard';
 
 const DashboardPage = () => {
   const router = useRouter();
-  const [user, setUser] = useState([])
+  const [user, setUser] = useContext(UserContext)
 
   const [classes, setClasses] = useState([]);
 
-  const userId = (user as User).id;
+  const userId = user.id;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
