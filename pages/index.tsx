@@ -1,10 +1,14 @@
 import { useState } from "react";
 import Head from "next/head";
+<<<<<<< HEAD
+import Video from "./videos/[id]/video";
+=======
 import { AiOutlineUser, AiOutlineKey } from "react-icons/ai";
 import { TiSortAlphabetically } from "react-icons/ti";
 
 import Input from "../components/Input";
 import { Button } from "../components/Button";
+>>>>>>> 2b7f274b79f7e26927960dc075a42e0f33be11ca
 
 const HomePage = () => {
   const [username, setUsername] = useState<string>();
@@ -15,6 +19,20 @@ const HomePage = () => {
   const [register, setRegister] = useState(false);
 
   return (
+<<<<<<< HEAD
+    // <div className="h-full">
+    //   <Head>
+    //     <title>Catchup | Log-In</title>
+    //     <link rel="icon" href="/favicon.ico" />
+    //   </Head>
+    //   <main className="p-8 h-full">
+    //     <section className="h-full flex items-center justify-center">
+    //       Text.
+    //     </section>
+    //   </main>
+    // </div>
+    <Video />
+=======
     <>
       <Head>
         <title>Catchup | {register ? "Register" : "Log In"}</title>
@@ -135,6 +153,7 @@ const HomePage = () => {
         </section>
       </main>
     </>
+>>>>>>> 2b7f274b79f7e26927960dc075a42e0f33be11ca
   );
 };
 
