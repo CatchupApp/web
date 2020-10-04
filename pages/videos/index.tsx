@@ -23,6 +23,7 @@ const VideoPage = () => {
           },
         })
         .then((res) => {
+          console.log(res);
           setVideos(res.data.videos);
         })
         .catch((err) => console.log(err));

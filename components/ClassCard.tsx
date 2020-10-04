@@ -1,4 +1,4 @@
-import type { ClassInfo, Lecture } from "../models/classinfo";
+import type { ClassInfo, Video } from "../models/classinfo";
 
 const ClassCard = (props) => {
   const classInfo = props.classInfo;
