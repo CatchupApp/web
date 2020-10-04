@@ -99,7 +99,40 @@ const HomePage = () => {
             </span>
           </div>
         </section>
-        <section className="w-2/3"></section>
+        <section className="w-2/3 relative">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 963 1024"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice"
+          >
+            <rect width="963" height="1024" fill="#4E4E67" />
+            <mask
+              id="mask0"
+              mask-type="alpha"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="4"
+              width="963"
+              height="1020"
+            >
+              <rect y="4" width="963" height="1020" fill="#9F5757" />
+            </mask>
+            <g mask="url(#mask0)">
+              <path
+                d="M529.5 938C337.1 793.2 95.6667 741.333 -1 733.5V1029.5H967.5V938C901.667 998.333 721.9 1082.8 529.5 938Z"
+                fill="#737398"
+              />
+              <path
+                d="M542.5 914C275.7 911.2 70 991.833 0.5 1032.5H1039V684.5C984.667 762.167 809.3 916.8 542.5 914Z"
+                fill="#9A9ABC"
+              />
+            </g>
+            <circle cx="605" cy="455" r="113" fill="white" />
+          </svg>
+        </section>
       </main>
     </>
   );
