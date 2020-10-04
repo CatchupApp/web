@@ -6,9 +6,15 @@ const TextField = (props) => {
   return (
     <div className="relative flex items-center">
       {props.icon && <props.icon className="w-6 h-6 absolute ml-4" />}
-      <input className={fieldClass} type={props.type} placeholder={props.placeholder} onChange={props.onChange} value={props.value}/>
+      <input
+        className={fieldClass}
+        type={props.type}
+        placeholder={props.placeholder}
+        onChange={props.onChange}
+        value={props.value}
+      />
     </div>
   );
-}
+};
 
 export default TextField;
