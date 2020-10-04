@@ -1,6 +1,6 @@
 import React from 'react';
-import { Lecture } from '../models/classinfo';
-import ThumbnailImage from '../components/ThumbnailImage';
+import { Lecture } from '../../models/classinfo';
+import ThumbnailImage from '../../components/ThumbnailImage';
 
 interface VideoProps {
   lectures: Array<Lecture>
