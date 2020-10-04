@@ -7,8 +7,9 @@ const HomePage = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <main>
-      <h1>Welcome to Catchup!</h1>
+    <main className="p-8">
+      <h1 className="text-4xl font-bold mb-6">Welcome to Catchup!</h1>
+      <p className="opacity-75">Look ma, Tailwind CSS works!</p>
     </main>
   </div>
 );
