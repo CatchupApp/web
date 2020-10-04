@@ -1,38 +1,67 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Head from "next/head";
-<<<<<<< HEAD
-import Video from "./videos/[id]/video";
-=======
+import { createRouter, useRouter } from "next/router";
+import axios from "axios";
 import { AiOutlineUser, AiOutlineKey } from "react-icons/ai";
 import { TiSortAlphabetically } from "react-icons/ti";
 
+import { User, UserContext } from "../utils/user";
 import Input from "../components/Input";
 import { Button } from "../components/Button";
->>>>>>> 2b7f274b79f7e26927960dc075a42e0f33be11ca
 
 const HomePage = () => {
-  const [username, setUsername] = useState<string>();
-  const [password, setPassword] = useState<string>();
-  const [fullname, setFullname] = useState<string>();
+  const router = useRouter();
+  const [user, setUser] = useContext(UserContext);
+
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [fullname, setFullname] = useState<string>("");
   const [teacher, setTeacher] = useState(false);
 
   const [register, setRegister] = useState(false);
 
+  const submit = () => {
+    console.log(process.env.SERVER_BASE_URL);
+    if (register) {
+      axios
+        .post(`${process.env.SERVER_BASE_URL}/user`, {
+          username,
+          password,
+          fullname,
+          teacher,
+        })
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          setUser({ id: res.data.id, username, fullname, teacher });
+          router.push("/dashboard");
+        })
+        .catch((err) => console.log(err));
+    } else {
+      axios
+        .post(`${process.env.SERVER_BASE_URL}/auth`, { username, password })
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          axios
+            .get(`${process.env.SERVER_BASE_URL}/user/${res.data.id}`, {
+              headers: {
+                Authorization: `Bearer ${res.data.token}`,
+              },
+            })
+            .then((userRes) => {
+              setUser({
+                id: res.data.id,
+                username,
+                fullname: userRes.data.fullname,
+                teacher: userRes.data.teacher,
+              });
+              router.push("/dashboard");
+            });
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
   return (
-<<<<<<< HEAD
-    // <div className="h-full">
-    //   <Head>
-    //     <title>Catchup | Log-In</title>
-    //     <link rel="icon" href="/favicon.ico" />
-    //   </Head>
-    //   <main className="p-8 h-full">
-    //     <section className="h-full flex items-center justify-center">
-    //       Text.
-    //     </section>
-    //   </main>
-    // </div>
-    <Video />
-=======
     <>
       <Head>
         <title>Catchup | {register ? "Register" : "Log In"}</title>
@@ -102,7 +131,7 @@ const HomePage = () => {
           </div>
           <Button
             text={register ? "Register" : "Log in"}
-            onClick={null}
+            onClick={submit}
             className="w-full justify-center py-3 mb-4"
           />
           <div className="text-center">
@@ -153,7 +182,6 @@ const HomePage = () => {
         </section>
       </main>
     </>
->>>>>>> 2b7f274b79f7e26927960dc075a42e0f33be11ca
   );
 };
 
